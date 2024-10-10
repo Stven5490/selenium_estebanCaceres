@@ -8,4 +8,8 @@ public class constantes {
     public static String obtenerChromeDriver(){
         return chromeDriver;
     }
+
+    public static String obtenerEdgeDriver() {
+        return edgeDriver;
+    }
 }
