@@ -1,34 +1,32 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class app {
-    public static void main(String[] args) {
-        //System.getProperty("webdriver.chome.driver", constantes.obtenerChromeDriver());
-        System.getProperty("webdriver.edge.driver", constantes.obtenerEdgeDriver());
 
-        //Configuracion Chrome
+    static String cerrarPopUp = "//button[@aria-label=\"Cerrar\"]";
+    public static void main(String[] args) throws InterruptedException {
+        System.setProperty("webdriver.chome.driver", constantes.obtenerChromeDriver());
+        WebDriver driver = new ChromeDriver();
+        //System.setProperty("webdriver.edge.driver", constantes.obtenerEdgeDriver());
+        //WebDriver driver = new EdgeDriver();
 
-        WebDriver chromeDriver = new ChromeDriver();
         System.out.println("Inicializando prueba...");
-        chromeDriver.get("https://www.google.cl");
-        System.out.println("Ingresando a URL: " + chromeDriver.getCurrentUrl());
-        System.out.println("Ingresando al sitio: " + chromeDriver.getTitle());
+        driver.get("https://www.google.cl");
+        System.out.println("Ingresando a URL: " + driver.getCurrentUrl());
+        System.out.println("Ingresando al sitio: " + driver.getTitle());
         System.out.println("Maximizando pagina web");
-        chromeDriver.manage().window().maximize();
-
-
-/*
-        //Configuracion Edge
-
-        WebDriver edgeDriver = new EdgeDriver();
-        System.out.println("Inicializando prueba...");
-        edgeDriver.get("https://www.google.cl");
-        System.out.println("Ingresando a URL: " + edgeDriver.getCurrentUrl());
-        System.out.println("Ingresando al sitio: " + edgeDriver.getTitle());
-        System.out.println("Maximizando pagina web");
-        edgeDriver.manage().window().maximize();
-*/
+        driver.manage().window().maximize();
+        System.out.println("Redirigiendo a Spotify: ");
+        driver.get(constantes.irSpotify());
+        System.out.println("Redirigiendo a portar de Registro de Spotify");
+        driver.get(constantes.signIn());
+        driver.findElement(By.id("username")).sendKeys(pages.email());
+        System.out.println("Ingresando correo de registro...");
+        Thread.sleep(5000);
+        System.out.println("Cerrando Pop Up");
+        driver.findElement(By.xpath(cerrarPopUp)).click();
     }
 }
 
