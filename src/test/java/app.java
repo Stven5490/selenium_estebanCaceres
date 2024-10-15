@@ -13,6 +13,7 @@ public class app {
     static String notMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[1]/div/div/label/span[1]";
     static String shareMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[2]/div/label/span[1]";
     static String Registrate = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
+    static String noRobot = "//*[@id=\"rc-anchor-container\"]/div[4]/div[1]/div[1]";
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chome.driver", constantes.obtenerChromeDriver());
         WebDriver driver = new ChromeDriver();
@@ -45,9 +46,13 @@ public class app {
         Thread.sleep(5000);
         driver.findElement(By.xpath(nextStep1)).click();
         System.out.println("<===== Paso 2 de 3 =====>");
+        System.out.println("Ingresando datos....");
         driver.findElement(By.id("displayName")).sendKeys(pages.usuario());
+        System.out.println("Ingresando dia de nacimiento");
         driver.findElement(By.id("day")).sendKeys(pages.dia());
+        System.out.println("Ingresando mes de nacimiento");
         driver.findElement(By.id("month")).sendKeys(pages.mes());
+        System.out.println("Ingresando año de nacimiento");
         driver.findElement(By.id("year")).sendKeys(pages.ano());
         driver.findElement(By.xpath(maleOption)).click();
         Thread.sleep(5000);
@@ -57,12 +62,8 @@ public class app {
         driver.findElement(By.xpath(shareMKT)).click();
         Thread.sleep(5000);
         driver.findElement(By.xpath(Registrate)).click();
-        driver.findElement(By.xpath("//*[@id=\"recaptcha-anchor\"]/div[3]")).click();
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"encore-web-main-content\"]/div/div/div/div/div/div/button/span[1]")).click();
-        Thread.sleep(5000);
-
-
+        Thread.sleep(15000);
+        driver.findElement(By.xpath(noRobot)).click();
     }
 }
 
