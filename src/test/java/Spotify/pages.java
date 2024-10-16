@@ -1,3 +1,5 @@
+package Spotify;
+
 public class pages {
     private static String emailRegistro = "esteban.caceres@tsoftglobal.com";
     private static String passWord = "Tsoft2025*";
