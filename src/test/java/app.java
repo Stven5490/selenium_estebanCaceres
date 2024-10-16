@@ -1,11 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class app {
-    static String cerrarPopUp = "//button[@aria-label=\"Cerrar\"]";
-    static String bntSiguienteLogin = "//*[@id=\"__next\"]/main/main/section/div/form/button";
     static String textBoxPassWord = "//*[@id=\"new-password\"]";
     static String nextStep1 = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
     static String maleOption = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[3]/fieldset/div/div/div[1]/label/span[1]";
@@ -34,13 +33,14 @@ public class app {
         System.out.println("Ingresando correo de registro...");
         Thread.sleep(5000);
         System.out.println("Cerrando Pop Up");
-        driver.findElement(By.xpath(cerrarPopUp)).click();
+        driver.findElement(By.xpath("//button[@aria-label=\"Cerrar\"]")).click();
         System.out.println("<===== Paso 1 de 3 =====>");
         Thread.sleep(5000);
         System.out.println("Clickeando siguiente");
-        driver.findElement(By.xpath(bntSiguienteLogin)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/button")).click();
         System.out.println("Ingresar contraseña....");
-        driver.findElement(By.xpath(textBoxPassWord)).sendKeys(pages.passWord());
+        driver.findElement(By.xpath(String.valueOf(txtBox.textBoxPassWord()))).sendKeys(pages.passWord());
+        System.err.println("<=>");
         System.out.println("Contraseña ingresada: ");
         System.out.println("Se pasa del paso 1 al 2");
         Thread.sleep(5000);
