@@ -17,7 +17,7 @@ public class app {
     static String shareMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[2]/div/label/span[1]";
     static String Registrate = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chome.driver", obtenerChromeDriver());
+        System.setProperty(WebChrome(), obtenerChromeDriver());
         WebDriver driver = new ChromeDriver();
         //System.setProperty("webdriver.edge.driver", Spotify.constantes.obtenerEdgeDriver());
         //WebDriver driver = new EdgeDriver();
