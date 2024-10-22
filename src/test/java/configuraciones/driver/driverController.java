@@ -33,11 +33,12 @@ public class driverController {
     public static void validar2daPantalla(WebDriver driver){
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] screens = ge.getScreenDevices();
+        System.out.println("Validando si existe un 2do Monitor");
         if (screens.length > 1){
             System.out.println("Moviendo a 2da pantalla");
             driver.manage().window().setPosition(new Point(0, -1080));
         } else {
-            System.out.println("Solo existe 1 pantalla conectada.");
+            System.err.println("Solo existe 1 pantalla conectada.");
         }
     }
     public static void ampliarPantalla(WebDriver driver){
@@ -46,7 +47,7 @@ public class driverController {
     }
     public static String obtenerTitulo(WebDriver driver){
         String tituloSitio = driver.getTitle();
-        System.out.println("Ingresando al sitio de: " + tituloSitio);
+        System.out.println("Sitio actual: " + tituloSitio);
         return tituloSitio;
     }
 }
