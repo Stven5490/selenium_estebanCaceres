@@ -1,10 +1,14 @@
+package Spotify;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+
+import static configuraciones.driver.driverController.*;
 
 public class app {
+    static String btnCerrarPopUp = "//button[@aria-label=\"Cerrar\"]";
+    static String nextStep = "//*[@id=\"__next\"]/main/main/section/div/form/button";
     static String textBoxPassWord = "//*[@id=\"new-password\"]";
     static String nextStep1 = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
     static String maleOption = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[3]/fieldset/div/div/div[1]/label/span[1]";
@@ -12,11 +16,10 @@ public class app {
     static String notMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[1]/div/div/label/span[1]";
     static String shareMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[2]/div/label/span[1]";
     static String Registrate = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
-    static String noRobot = "//*[@id=\"rc-anchor-container\"]/div[4]/div[1]/div[1]";
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chome.driver", constantes.obtenerChromeDriver());
+        System.setProperty(WebChrome(), obtenerChromeDriver());
         WebDriver driver = new ChromeDriver();
-        //System.setProperty("webdriver.edge.driver", constantes.obtenerEdgeDriver());
+        //System.setProperty("webdriver.edge.driver", Spotify.constantes.obtenerEdgeDriver());
         //WebDriver driver = new EdgeDriver();
 
         System.out.println("Inicializando prueba...");
@@ -33,13 +36,13 @@ public class app {
         System.out.println("Ingresando correo de registro...");
         Thread.sleep(5000);
         System.out.println("Cerrando Pop Up");
-        driver.findElement(By.xpath("//button[@aria-label=\"Cerrar\"]")).click();
+        driver.findElement(By.xpath(btnCerrarPopUp)).click();
         System.out.println("<===== Paso 1 de 3 =====>");
         Thread.sleep(5000);
         System.out.println("Clickeando siguiente");
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/button")).click();
+        driver.findElement(By.xpath(nextStep)).click();
         System.out.println("Ingresar contraseña....");
-        driver.findElement(By.xpath(String.valueOf(txtBox.textBoxPassWord()))).sendKeys(pages.passWord());
+        driver.findElement(By.xpath(textBoxPassWord)).sendKeys(pages.passWord());
         System.err.println("<=>");
         System.out.println("Contraseña ingresada: ");
         System.out.println("Se pasa del paso 1 al 2");
@@ -63,7 +66,8 @@ public class app {
         Thread.sleep(5000);
         driver.findElement(By.xpath(Registrate)).click();
         Thread.sleep(15000);
-        driver.findElement(By.xpath(noRobot)).click();
+        //agregar el check manual (ROBO)
+
     }
 }
 
