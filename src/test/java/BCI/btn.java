@@ -21,7 +21,6 @@ public class btn {
     }
     public static void btnContinuarHazteCliente(WebDriver driver){
         WebElement btncontinuarhaztecliente;
-        //By bybtncontinuarhaztecliente = By.xpath(botonContinuarHazteClienteBCI);
         By bybtncontinuarhaztecliente = By.cssSelector(botonContinuarHazteClienteBCI);
         btncontinuarhaztecliente = driver.findElement(bybtncontinuarhaztecliente);
         btncontinuarhaztecliente.click();

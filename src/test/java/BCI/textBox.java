@@ -15,7 +15,6 @@ public class textBox {
     private static String retextBoxEmail = "//*[@id=\"contenedorApp\"]/div/div/app-datos-basicos/form/div/div[1]/validador-correo/form/div[2]/input";
     public static void txtBoxRut(WebDriver driver){
         WebElement txtboxrut;
-        //By bytxtboxrut = By.xpath(textBoxRut);
         By bytxtboxrut = By.cssSelector(textBoxRut);
         txtboxrut = driver.findElement(bytxtboxrut);
         System.out.println("Ingresando el RUT del posible cliente...");

@@ -22,10 +22,10 @@ public class hazteCliente {
         //Page 1
         iniciandoProyecto();
         driver.get(BCI());
-        //validar2daPantalla(driver);
+        validar2daPantalla(driver);
         ampliarPantalla(driver);
         obtenerTitulo(driver);
-        //popUpAbretuCuenta(driver);
+        popUpAbretuCuenta(driver);
         btnHazteClienteBCI(driver);
         Thread.sleep(10000);
 
