@@ -2,71 +2,73 @@ package Spotify;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 import static configuraciones.driver.driverController.*;
 
 public class app {
-    static String btnCerrarPopUp = "//button[@aria-label=\"Cerrar\"]";
-    static String nextStep = "//*[@id=\"__next\"]/main/main/section/div/form/button";
-    static String textBoxPassWord = "//*[@id=\"new-password\"]";
-    static String nextStep1 = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
-    static String maleOption = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[3]/fieldset/div/div/div[1]/label/span[1]";
-    static String nextStep2 = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
-    static String notMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[1]/div/div/label/span[1]";
-    static String shareMKT = "//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[2]/div/label/span[1]";
-    static String Registrate = "//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]";
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(WebChrome(), obtenerChromeDriver());
-        WebDriver driver = new ChromeDriver();
-        //System.setProperty("webdriver.edge.driver", Spotify.constantes.obtenerEdgeDriver());
-        //WebDriver driver = new EdgeDriver();
+        //System.getProperty(WebChrome(), obtenerChromeDriver());
+        //WebDriver driver = new ChromeDriver();
+        System.getProperty(WebEdge(), obtenerEdgeDriver());
+        WebDriver driver = new EdgeDriver();
 
-        System.out.println("Inicializando prueba...");
+        iniciandoProyecto();
         driver.get("https://www.google.cl");
         System.out.println("Ingresando a URL: " + driver.getCurrentUrl());
         System.out.println("Ingresando al sitio: " + driver.getTitle());
         System.out.println("Maximizando pagina web");
         driver.manage().window().maximize();
         System.out.println("Redirigiendo a Spotify: ");
-        driver.get(constantes.irSpotify());
+        driver.get("https://www.spotify.com/cl/premium/?utm_source=cl-es_brand_contextual_text&utm_medium=paidsearch&utm_campaign=alwayson_latam_cl_performancemarketing_core_brand+contextual+text+cl-es+google&gclsrc=aw.ds&gad_source=1&gclid=Cj0KCQjwgrO4BhC2ARIsAKQ7zUlbeDLI3_bjViN3kludgPlwpEKfBmAaR6e668q8EiynTrnS39jP_C8aAp3PEALw_wcB");
         System.out.println("Redirigiendo a portar de Registro de Spotify");
-        driver.get(constantes.signIn());
-        driver.findElement(By.id("username")).sendKeys(pages.email());
+        driver.get("https://www.spotify.com/cl/signup/");
+        driver.findElement(By.id("username")).sendKeys("esteban.caceres@tsoftglobal.com");
         System.out.println("Ingresando correo de registro...");
         Thread.sleep(5000);
-        System.out.println("Cerrando Pop Up");
-        driver.findElement(By.xpath(btnCerrarPopUp)).click();
+        WebElement btncerrarpopup;
+        By bybtncerrarpopup = By.xpath("//button[@aria-label=\"Cerrar\"]");
+        btncerrarpopup = driver.findElement(bybtncerrarpopup);
+        if (btncerrarpopup.isDisplayed()){
+            System.out.println("Cerrando PopUp");
+            btncerrarpopup.click();
+        } else {
+            System.out.println("No existe PopUp");
+        }
         System.out.println("<===== Paso 1 de 3 =====>");
         Thread.sleep(5000);
         System.out.println("Clickeando siguiente");
-        driver.findElement(By.xpath(nextStep)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/button")).click();
         System.out.println("Ingresar contraseña....");
-        driver.findElement(By.xpath(textBoxPassWord)).sendKeys(pages.passWord());
+        driver.findElement(By.xpath("//*[@id=\"new-password\"]")).sendKeys("Tsoft2025.");
         System.err.println("<=>");
         System.out.println("Contraseña ingresada: ");
         System.out.println("Se pasa del paso 1 al 2");
         Thread.sleep(5000);
-        driver.findElement(By.xpath(nextStep1)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]")).click();
         System.out.println("<===== Paso 2 de 3 =====>");
         System.out.println("Ingresando datos....");
-        driver.findElement(By.id("displayName")).sendKeys(pages.usuario());
+        driver.findElement(By.id("displayName")).sendKeys("Esteban");
         System.out.println("Ingresando dia de nacimiento");
-        driver.findElement(By.id("day")).sendKeys(pages.dia());
+        driver.findElement(By.id("day")).sendKeys("5");
         System.out.println("Ingresando mes de nacimiento");
-        driver.findElement(By.id("month")).sendKeys(pages.mes());
+        driver.findElement(By.id("month")).sendKeys("Abril");
         System.out.println("Ingresando año de nacimiento");
-        driver.findElement(By.id("year")).sendKeys(pages.ano());
-        driver.findElement(By.xpath(maleOption)).click();
+        driver.findElement(By.id("year")).sendKeys("1990");
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[3]/fieldset/div/div/div[1]/label/span[1]")).click();
         Thread.sleep(5000);
-        driver.findElement(By.xpath(nextStep2)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]")).click();
         System.out.println("<===== Paso 3 de 3 =====>");
-        driver.findElement(By.xpath(notMKT)).click();
-        driver.findElement(By.xpath(shareMKT)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[1]/div/div/label/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[1]/div[2]/div/section/div[4]/div[2]/div/label/span[1]")).click();
         Thread.sleep(5000);
-        driver.findElement(By.xpath(Registrate)).click();
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/main/main/section/div/form/div[2]/button/span[1]")).click();
         Thread.sleep(15000);
-        //agregar el check manual (ROBO)
+        //agregar el check manual (ROBOT)
+        driver.findElement(By.xpath("//*[@id=\"encore-web-main-content\"]/div/div/div/div/div/div/button/span[1]")).click();
+        System.out.println(driver.getTitle());
 
     }
 }
