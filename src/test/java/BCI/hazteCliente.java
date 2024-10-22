@@ -14,17 +14,13 @@ import static configuraciones.driver.driverController.*;
 import static configuraciones.driver.popUpController.*;
 
 public class hazteCliente {
-
-
-
-
     public static void main(String[] args) throws InterruptedException {
         //System.getProperty(WebChrome(), obtenerChromeDriver());
         //WebDriver driver = new ChromeDriver();
         System.getProperty(WebEdge(), obtenerEdgeDriver());
         WebDriver driver = new EdgeDriver();
         //Page 1
-        System.out.println("Iniciando prueba...");
+        iniciandoProyecto();
         driver.get(BCI());
         //validar2daPantalla(driver);
         ampliarPantalla(driver);
