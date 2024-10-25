@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class btn {
     private static String botonHazteClienteBCI = "//*[@id=\"header\"]/nav[2]/div[2]/ul/li[1]/a";
-    private static String botonContinuarHazteClienteBCI = "#contenedorApp > div > div > app-datos-basicos > form > div > div.foot > button";
+    static String botonContinuarHazteClienteBCI = "#contenedorApp > div > div > app-datos-basicos > form > div > div.foot > button";
     public static void btnHazteClienteBCI(WebDriver driver){
         WebElement btnhazteclientebci;
         By bybtnhazteclientebci = By.xpath(botonHazteClienteBCI);

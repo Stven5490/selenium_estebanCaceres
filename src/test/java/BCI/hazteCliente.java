@@ -1,13 +1,12 @@
 package BCI;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 
 import static BCI.btn.*;
+import static BCI.checkBox.*;
 import static BCI.constantes.*;
 import static BCI.textBox.*;
 import static configuraciones.driver.driverController.*;
@@ -22,10 +21,10 @@ public class hazteCliente {
         //Page 1
         iniciandoProyecto();
         driver.get(BCI());
-        validar2daPantalla(driver);
+        //validar2daPantalla(driver);
         ampliarPantalla(driver);
         obtenerTitulo(driver);
-        popUpAbretuCuenta(driver);
+        //popUpAbretuCuenta(driver);
         btnHazteClienteBCI(driver);
         Thread.sleep(10000);
 
@@ -43,6 +42,11 @@ public class hazteCliente {
         txtBoxMail(driver);
         retxtBoxMail(driver);
         //Marcar check de politicas
+        Thread.sleep(15000);
+        checkBoxPolitica(driver);
+        //aplicar Scroll
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(10000, 10000);");
         Thread.sleep(15000);
         btnContinuarHazteCliente(driver);
     }
