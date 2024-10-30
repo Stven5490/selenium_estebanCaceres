@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static BCI.constantes.*;
+import static configuraciones.driver.rutRandom.*;
 
 public class textBox {
 
@@ -19,7 +20,7 @@ public class textBox {
         By bytxtboxrut = By.cssSelector(textBoxRut);
         txtboxrut = driver.findElement(bytxtboxrut);
         System.out.println("Ingresando el RUT del posible cliente...");
-        txtboxrut.sendKeys(ingresarRUT());
+        txtboxrut.sendKeys(rut());
     }
     public static void txtBoxNoDoc(WebDriver driver){
         WebElement txtboxnodoc;

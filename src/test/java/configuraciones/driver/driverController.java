@@ -18,6 +18,9 @@ public class driverController {
     private static String edgeDriver = rutaProyecto + edge;
     private static String fireFoxDriver = rutaProyecto + firefox;
     private static String starTest = "Inicializando prueba...";
+    public static String obtenerRutaProyecto(){ return  rutaProyecto; }
+    public static String obtenerDriver(){ return driver; }
+    public static String chromeDriver(){ return  chrome; }
     public static String obtenerChromeDriver(){
         return chromeDriver;
     }
@@ -51,7 +54,7 @@ public class driverController {
         System.out.println("Sitio actual: " + tituloSitio);
         return tituloSitio;
     }
-    public static String iniciandoProyecto(){
-        return starTest;
+    public static void iniciandoProyecto(){
+        System.out.println(starTest);
     }
 }
