@@ -1,4 +1,4 @@
-package BCI;
+package unidad1.BCI;
 
 public class constantes {
     private static String urlBCI = "https://www.bci.cl/personas";
@@ -7,7 +7,7 @@ public class constantes {
     private static String noFono = "96605236";
     private static String email = "est.caceres@tsoftglobal.cl";
     public static String BCI(){
-        System.out.println("Dirigiendo a sitio BCI");
+        System.out.println("Dirigiendo a sitio unidad1.BCI");
         return urlBCI;
     }
     public static String ingresarRUT(){

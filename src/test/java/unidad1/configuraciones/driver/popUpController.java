@@ -1,4 +1,4 @@
-package configuraciones.driver;
+package unidad1.configuraciones.driver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

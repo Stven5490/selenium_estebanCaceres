@@ -1,4 +1,4 @@
-package BCI;
+package unidad1.BCI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

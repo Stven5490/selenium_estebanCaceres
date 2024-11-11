@@ -1,12 +1,12 @@
-package BCI;
+package unidad1.BCI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static BCI.constantes.*;
-import static configuraciones.driver.rutRandom.*;
+import static unidad1.BCI.constantes.*;
+import static unidad1.configuraciones.driver.rutRandom.*;
 
 public class textBox {
 

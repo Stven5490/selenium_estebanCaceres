@@ -1,14 +1,14 @@
-package BCI;
+package unidad1.BCI;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 
 
-import static BCI.btn.*;
-import static BCI.checkBox.*;
-import static BCI.constantes.*;
-import static BCI.textBox.*;
-import static configuraciones.driver.driverController.*;
+import static unidad1.BCI.btn.*;
+import static unidad1.BCI.checkBox.*;
+import static unidad1.BCI.constantes.*;
+import static unidad1.BCI.textBox.*;
+import static unidad1.configuraciones.driver.driverController.*;
 
 public class hazteCliente {
     public static void main(String[] args) throws InterruptedException {

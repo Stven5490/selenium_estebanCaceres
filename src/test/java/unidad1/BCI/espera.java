@@ -1,4 +1,4 @@
-package BCI;
+package unidad1.BCI;
 
 public class espera {
     private static int fiveSegundos = 5000;

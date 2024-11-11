@@ -1,4 +1,4 @@
-package configuraciones.driver;
+package unidad1.configuraciones.driver;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class driverController {
     private static String rutaProyecto = System.getProperty("user.dir");
-    private static String driver = "\\src\\test\\resources\\drivers\\";
+    private static String driver = "\\src\\unidad1.BCI.test\\resources\\drivers\\";
     private static String chrome = "chromedriver.exe";
     private static String chromeWebDriver = "webdriver.chrome.driver";
     private static String edge = "msedgedriver.exe";

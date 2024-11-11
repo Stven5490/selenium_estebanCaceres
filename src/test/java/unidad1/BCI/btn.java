@@ -1,4 +1,4 @@
-package BCI;
+package unidad1.BCI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ public class btn {
         btnhazteclientebci = driver.findElement(bybtnhazteclientebci);
         System.out.println("Validando si existe el boton 'Hazte Cliente'");
         if (btnhazteclientebci.isDisplayed()){
-            System.out.println("Ingresando a sitio para crear cta en BCI");
+            System.out.println("Ingresando a sitio para crear cta en unidad1.BCI");
             btnhazteclientebci.click();
         } else {
             System.err.println("El boton no existe");

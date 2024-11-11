@@ -1,12 +1,11 @@
-package Spotify;
+package unidad1.Spotify;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-import static configuraciones.driver.driverController.*;
+import static unidad1.configuraciones.driver.driverController.*;
 
 public class app {
     public static void main(String[] args) throws InterruptedException {
@@ -21,9 +20,9 @@ public class app {
         System.out.println("Ingresando al sitio: " + driver.getTitle());
         System.out.println("Maximizando pagina web");
         driver.manage().window().maximize();
-        System.out.println("Redirigiendo a Spotify: ");
+        System.out.println("Redirigiendo a unidad1.Spotify: ");
         driver.get("https://www.spotify.com/cl/premium/?utm_source=cl-es_brand_contextual_text&utm_medium=paidsearch&utm_campaign=alwayson_latam_cl_performancemarketing_core_brand+contextual+text+cl-es+google&gclsrc=aw.ds&gad_source=1&gclid=Cj0KCQjwgrO4BhC2ARIsAKQ7zUlbeDLI3_bjViN3kludgPlwpEKfBmAaR6e668q8EiynTrnS39jP_C8aAp3PEALw_wcB");
-        System.out.println("Redirigiendo a portar de Registro de Spotify");
+        System.out.println("Redirigiendo a portar de Registro de unidad1.Spotify");
         driver.get("https://www.spotify.com/cl/signup/");
         driver.findElement(By.id("username")).sendKeys("esteban.caceres@tsoftglobal.com");
         System.out.println("Ingresando correo de registro...");

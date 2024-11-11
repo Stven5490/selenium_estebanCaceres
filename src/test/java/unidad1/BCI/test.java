@@ -1,3 +1,5 @@
+package unidad1.BCI;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -7,18 +9,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static BCI.btn.btnContinuarHazteCliente;
-import static BCI.btn.btnHazteClienteBCI;
-import static BCI.checkBox.checkBoxPolitica;
-import static BCI.constantes.BCI;
-import static BCI.errorController.*;
-import static BCI.espera.*;
-import static BCI.textBox.*;
-import static configuraciones.driver.driverController.*;
+import static unidad1.BCI.btn.btnContinuarHazteCliente;
+import static unidad1.BCI.btn.btnHazteClienteBCI;
+import static unidad1.BCI.checkBox.checkBoxPolitica;
+import static unidad1.BCI.constantes.BCI;
+import static unidad1.BCI.errorController.*;
+import static unidad1.BCI.espera.*;
+import static unidad1.BCI.textBox.*;
+import static unidad1.configuraciones.driver.driverController.*;
 
 public class test {
     private static WebDriver driver;
-    private static final String rutaDriver = System.getProperty("user.dir") + "\\src\\test\\resources\\drivers\\chromedriver.exe";;
+    private static final String rutaDriver = System.getProperty("user.dir") + "\\src\\unidad1.BCI.test\\resources\\drivers\\chromedriver.exe";;
     private static WebDriverWait wait;
 
     @BeforeEach
