@@ -22,7 +22,7 @@ public class app {
         driver.manage().window().maximize();
         System.out.println("Redirigiendo a unidad1.Spotify: ");
         driver.get("https://www.spotify.com/cl/premium/?utm_source=cl-es_brand_contextual_text&utm_medium=paidsearch&utm_campaign=alwayson_latam_cl_performancemarketing_core_brand+contextual+text+cl-es+google&gclsrc=aw.ds&gad_source=1&gclid=Cj0KCQjwgrO4BhC2ARIsAKQ7zUlbeDLI3_bjViN3kludgPlwpEKfBmAaR6e668q8EiynTrnS39jP_C8aAp3PEALw_wcB");
-        System.out.println("Redirigiendo a portar de Registro de unidad1.Spotify");
+        System.out.println("Redirigiendo a portar de Registro de Spotify");
         driver.get("https://www.spotify.com/cl/signup/");
         driver.findElement(By.id("username")).sendKeys("esteban.caceres@tsoftglobal.com");
         System.out.println("Ingresando correo de registro...");

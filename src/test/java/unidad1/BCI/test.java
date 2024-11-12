@@ -1,5 +1,6 @@
 package unidad1.BCI;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -25,9 +26,13 @@ public class test {
 
     @BeforeEach
     public void preCondiciones(){
-        System.setProperty("webdriver.chrome.driver",rutaDriver);
+        System.getProperty("webdriver.chrome.driver",rutaDriver);
         driver = new ChromeDriver();
         ampliarPantalla(driver);
+    }
+    @AfterEach
+    public void cierreBrowser(){
+        driver.close();
     }
 
     @Test

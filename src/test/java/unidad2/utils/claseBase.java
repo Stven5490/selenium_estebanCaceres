@@ -10,33 +10,26 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
 public class claseBase {
     protected WebDriver driver;
     private WebDriverWait wait;
-
     public WebDriver getDriver() {
         return driver;
     }
-
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
-
     public WebDriverWait getWait() {
         return wait;
     }
-
     public void setWait(WebDriverWait wait) {
         this.wait = wait;
     }
-
-    public claseBase(WebDriver driver, WebDriverWait wait) {
+    public claseBase(WebDriver driver) {
         this.driver = driver;
-        this.wait = wait;
     }
     public WebElement buscarElementoWeb(By localizador){
         return driver.findElement(localizador);
@@ -51,10 +44,10 @@ public class claseBase {
         wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
         return wait.until(ExpectedConditions.presenceOfElementLocated(localizador));
     }
-    public void esperarXSegundo(int miliSegundos){
+    public void esperarXSegundos(int miliSegundos) {
         try {
             Thread.sleep(miliSegundos);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -64,10 +57,10 @@ public class claseBase {
     public void click(WebElement elemento){
         elemento.click();
     }
-    public void agregarTexto(By localizador, String texto){
+    public void agregarTexto(By localizador,String texto){
         this.driver.findElement(localizador).sendKeys(texto);
     }
-    public void agregarTexto(WebElement elemento, String texto){
+    public void agregarTexto(WebElement elemento,String texto){
         elemento.sendKeys(texto);
     }
     public void agregarCombinacionTeclas(By localizador, Keys key){
@@ -83,34 +76,46 @@ public class claseBase {
         this.driver.manage().window().maximize();
     }
     public boolean estaDesplegado(By localizador){
-        try {
+        try{
             return this.driver.findElement(localizador).isDisplayed();
-        } catch (org.openqa.selenium.NoSuchElementException ex){
+        }catch(org.openqa.selenium.NoSuchElementException ex){
             return false;
         }
     }
     public boolean estaDesplegado(WebElement elemento){
-        try {
+        try{
             return elemento.isDisplayed();
-        } catch (org.openqa.selenium.NoSuchElementException ex){
+        }catch(org.openqa.selenium.NoSuchElementException ex){
             return false;
         }
     }
-    public void selectDDLporTextoVisible(WebElement elemento, String texto){
+    public void selectDDLPorTextoVisible(WebElement elemento,String texto){
         Select select = new Select(elemento);
         select.selectByVisibleText(texto);
     }
-    public WebDriver conexionDriver(String browser, String ruta, String propertyDriver){
-        if (browser.equalsIgnoreCase("chrome")){
-           System.setProperty(propertyDriver, ruta);
-           this.driver = new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("firefox")){
-            System.setProperty(propertyDriver, ruta);
+    public WebDriver conexionDriver(String browser,String ruta,String propertyDriver){
+        if(browser.equalsIgnoreCase("chrome")){
+            System.setProperty(propertyDriver,ruta);
+            this.driver = new ChromeDriver();
+        }else if (browser.equalsIgnoreCase("firefox")){
+            System.setProperty(propertyDriver,ruta);
             this.driver = new FirefoxDriver();
-        } else if (browser.equalsIgnoreCase("edge")){
-            System.setProperty(propertyDriver, ruta);
+        }else if (browser.equalsIgnoreCase("edge")){
+            System.setProperty(propertyDriver,ruta);
             this.driver = new EdgeDriver();
         }
         return this.driver;
+    }
+    public String obtenerTexto(By localizador){
+        return this.driver.findElement(localizador).getText();
+    }
+    public String obtenerTexto(WebElement elemento){
+        return elemento.getText();
+    }
+    public String obtenerAtributoWebElement(By localizador,String atributo){
+        return this.driver.findElement(localizador).getAttribute(atributo);
+    }
+    public String obtenerAtributoWebElement(WebElement elemento,String atributo){
+        return elemento.getAttribute(atributo);
     }
 }
